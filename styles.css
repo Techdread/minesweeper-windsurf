@@ -1,0 +1,108 @@
+:root {
+    --cell-size: 30px;
+    --border-color: #7b7b7b;
+    --cell-bg: #c0c0c0;
+    --cell-revealed: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    background-color: #c0c0c0;
+    padding: 16px;
+    border: 3px solid #808080;
+    border-radius: 8px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--cell-bg);
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 3px solid var(--border-color);
+}
+
+.mine-counter, .timer {
+    background-color: black;
+    color: red;
+    padding: 5px 10px;
+    font-family: 'Digital', monospace;
+    font-size: 24px;
+}
+
+.reset-button {
+    font-size: 24px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: var(--cell-bg);
+    border: 2px solid var(--border-color);
+}
+
+.difficulty-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.difficulty-selector button {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: var(--cell-bg);
+    border: 2px solid var(--border-color);
+}
+
+.grid {
+    display: grid;
+    gap: 1px;
+    background-color: var(--border-color);
+    border: 3px solid var(--border-color);
+}
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+.cell.revealed {
+    background-color: var(--cell-revealed);
+}
+
+.cell.mine {
+    background-color: red;
+}
+
+.cell.flagged::after {
+    content: "🚩";
+}
+
+/* Number colors */
+.cell[data-number="1"] { color: blue; }
+.cell[data-number="2"] { color: green; }
+.cell[data-number="3"] { color: red; }
+.cell[data-number="4"] { color: darkblue; }
+.cell[data-number="5"] { color: darkred; }
+.cell[data-number="6"] { color: teal; }
+.cell[data-number="7"] { color: black; }
+.cell[data-number="8"] { color: gray; }
